@@ -18,7 +18,7 @@ It is designed using **Django** and **Django REST Framework**, with **GraphQL** 
 
 ---
 
-## 🛠️ Features Overview
+## 🛠️ Features Breakdown
 
 ### 1. API Documentation
 - **OpenAPI Standard:** Ensures well-structured and clear documentation.  
