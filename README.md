@@ -18,7 +18,61 @@ It is designed using **Django** and **Django REST Framework**, with **GraphQL** 
 
 ---
 
-## 🛠️ Features Breakdown
+## 🧩 Feature Breakdown
+
+| Feature | Description | Endpoints |
+|----------|--------------|------------|
+| **User Management** | Register, authenticate, and manage user profiles. | `/users/`, `/users/{user_id}/` |
+| **Property Management** | Create, update, retrieve, and delete property listings. | `/properties/`, `/properties/{property_id}/` |
+| **Booking System** | Reserve and manage property bookings, check-ins, and check-outs. | `/bookings/`, `/bookings/{booking_id}/` |
+| **Payment Processing** | Process and record payment transactions for bookings. | `/payments/` |
+| **Review System** | Post, update, and manage user reviews and property ratings. | `/reviews/`, `/reviews/{review_id}/` |
+| **Data Optimization** | Database indexing and caching with Redis for faster performance. | — |
+
+---
+
+## 🗄️ Database Design
+
+The database schema is designed for efficiency, scalability, and clear relationships between users, properties, bookings, payments, and reviews.
+
+### Key Entities
+
+| Entity | Description |
+|---------|--------------|
+| **User** | Represents both hosts and guests. Contains authentication details, contact info, and profile data. |
+| **Property** | Stores information about listed properties including title, description, price, location, amenities, and availability. |
+| **Booking** | Tracks reservations made by users for specific properties, including check-in/check-out dates and status. |
+| **Payment** | Records payment details related to bookings, including amount, status, and transaction reference. |
+| **Review** | Stores user feedback and ratings for properties after completed bookings. |
+
+### Example Relationships
+
+- A **User** can list multiple **Properties**.  
+- A **User** can make multiple **Bookings**.  
+- A **Booking** is linked to one **Property** and one **User**.  
+- A **Payment** is associated with one **Booking**.  
+- A **Review** references both a **User** and a **Property**.
+
+---
+
+## ⚙️ Technology Stack
+
+The project leverages modern web technologies to ensure scalability, security, and efficient performance.
+
+| Technology | Purpose |
+|-------------|----------|
+| **Django** | A high-level Python web framework used to build the backend, handle routing, and manage server-side logic. |
+| **Django REST Framework (DRF)** | Provides a powerful toolkit for building RESTful APIs, including serializers, authentication, and viewsets. |
+| **GraphQL** | Offers a flexible query language that allows clients to request only the data they need, improving efficiency. |
+| **PostgreSQL** | A powerful relational database system used to store and manage structured data efficiently. |
+| **Celery** | Handles asynchronous tasks such as sending notifications, processing payments, and running background jobs. |
+| **Redis** | Used for caching and session management to enhance performance and reduce database load. |
+| **Docker** | Containerizes the application for consistent development, testing, and deployment environments. |
+| **CI/CD Pipelines** | Automates testing, building, and deployment of code changes to ensure continuous integration and delivery. |
+
+---
+
+## 🛠️ Features Overview
 
 ### 1. API Documentation
 - **OpenAPI Standard:** Ensures well-structured and clear documentation.  
@@ -64,20 +118,6 @@ It is designed using **Django** and **Django REST Framework**, with **GraphQL** 
 ### 7. Database Optimization
 - **Indexing:** Improves query performance.  
 - **Caching:** Reduces database load using Redis.
-
----
-
-## ⚙️ Technology Stack
-
-| Component | Technology |
-|------------|-------------|
-| **Framework** | Django |
-| **API Layer** | Django REST Framework & GraphQL |
-| **Database** | PostgreSQL |
-| **Task Queue** | Celery |
-| **Caching** | Redis |
-| **Containerization** | Docker |
-| **CI/CD** | Automated testing and deployment pipelines |
 
 ---
 
