@@ -131,6 +131,73 @@ The project leverages modern web technologies to ensure scalability, security, a
 | **QA Engineer** | Test APIs and ensure backend stability |
 
 ---
+## 🛡️ API Security
+
+Security is a critical aspect of this project to ensure that user data, financial transactions, and API interactions are well-protected. The following measures will be implemented:
+
+### 1. **Authentication**
+- **JWT (JSON Web Tokens):** Used to securely verify user identities and manage sessionless authentication.
+- **Token Expiry:** Tokens are configured with limited lifetimes to reduce risk if compromised.
+- **Refresh Tokens:** Allow users to maintain sessions securely without exposing sensitive credentials.
+
+### 2. **Authorization**
+- **Role-Based Access Control (RBAC):** Different roles (Admin, Host, Guest) have specific permissions.
+- **Object-Level Permissions:** Users can only access or modify resources they own (e.g., a host can only manage their own properties).
+
+### 3. **Rate Limiting**
+- Prevents brute-force attacks and API abuse by limiting the number of requests from a single IP within a specific timeframe.
+- Implemented using Django REST Framework’s built-in throttling or third-party middleware.
+
+### 4. **Data Validation & Sanitization**
+- All user inputs are validated and sanitized to prevent SQL injection, XSS, and other injection attacks.
+- Strict schema validation on both REST and GraphQL endpoints.
+
+### 5. **HTTPS Enforcement**
+- All communications between client and server will be encrypted using HTTPS to protect data in transit.
+
+### 6. **Secure Storage**
+- Sensitive information (e.g., passwords, payment tokens) is encrypted using industry-standard hashing algorithms like **PBKDF2** or **bcrypt**.
+- Environment variables are used for secret keys and database credentials.
+
+### 7. **CORS Policy**
+- Cross-Origin Resource Sharing (CORS) is configured to allow access only from trusted domains.
+
+### 8. **Logging & Monitoring**
+- Authentication attempts, failed logins, and security-related events are logged for auditing.
+- Continuous monitoring tools (e.g., Sentry) will be used to detect and respond to anomalies in real time.
+
+---
+
+These measures collectively ensure that the backend API remains **secure, reliable, and compliant** with modern web security standards.
+
+---
+
+## ⚙️ CI/CD Pipeline
+
+### What is CI/CD?
+**CI/CD (Continuous Integration and Continuous Deployment)** is a development practice that automates the process of integrating code changes, testing them, and deploying them to production.  
+This ensures that new features, fixes, and updates are delivered **quickly**, **reliably**, and **safely** without manual intervention.
+
+### Why It’s Important for This Project
+- **Automation:** Reduces human errors by automating testing, building, and deployment steps.
+- **Faster Delivery:** Enables rapid release of new features and bug fixes.
+- **Consistency:** Ensures that every deployment follows the same reliable process.
+- **Early Detection:** Continuous testing helps identify bugs or issues early in the development cycle.
+- **Scalability:** Supports smooth scaling and version control as the project grows.
+
+### Tools Used
+- **GitHub Actions:** For automating build, test, and deployment workflows directly from the GitHub repository.  
+- **Docker:** Ensures a consistent environment across development, testing, and production.  
+- **Docker Compose:** Simplifies managing multi-container applications during deployment.  
+- **Render / AWS / DigitalOcean:** (Optional) Used for hosting and automatic deployment after successful CI checks.  
+- **pytest / Django Test Framework:** For automated testing to ensure code stability before merging.
+
+---
+
+The CI/CD pipeline ensures that this Airbnb Clone backend remains **stable, scalable, and production-ready** with every update.
+
+
+---
 
 ## 📈 API Documentation
 
@@ -140,4 +207,3 @@ The project leverages modern web technologies to ensure scalability, security, a
 ---
 
 ## 🧱 Project Structure (Example)
-
