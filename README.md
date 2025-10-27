@@ -121,7 +121,7 @@ The project leverages modern web technologies to ensure scalability, security, a
 
 ---
 
-## 👥 Team Roles
+## Project Roles and Responsibilities
 
 | Role | Responsibilities |
 |------|------------------|
