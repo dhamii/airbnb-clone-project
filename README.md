@@ -131,6 +131,13 @@ The project leverages modern web technologies to ensure scalability, security, a
 | **QA Engineer** | Test APIs and ensure backend stability |
 
 ---
+###  UI Component Patterns
+## Navbar
+  - Logo
+  - Search bar
+  - User navigation
+  - Responsive menu
+
 ## 🛡️ API Security
 
 Security is a critical aspect of this project to ensure that user data, financial transactions, and API interactions are well-protected. The following measures will be implemented:
